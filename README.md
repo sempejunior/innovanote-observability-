@@ -7,12 +7,18 @@ Padroniza logging estruturado em JSON, propagação de `correlation_id`, error c
 ## Instalação
 
 ```bash
-# Direto do GitHub (até GitHub Packages estar configurado)
+# Recomendado (instala via SSH a partir da tag do repo privado)
 pip install "innovanote-observability @ git+ssh://git@github.com/sempejunior/innovanote-observability-.git@v0.1.0"
 
-# Via GitHub Packages (após Fase 0 completa)
-pip install --extra-index-url "https://${GITHUB_TOKEN}@pypi.pkg.github.com/sempejunior/simple/" innovanote-observability==0.1.0
+# Em requirements.txt:
+# innovanote-observability @ git+ssh://git@github.com/sempejunior/innovanote-observability-.git@v0.1.0
+
+# Alternativa: baixar wheel anexado ao GitHub Release
+# gh release download v0.1.0 --repo sempejunior/innovanote-observability- --pattern "*.whl"
+# pip install innovanote_observability-0.1.0-py3-none-any.whl
 ```
+
+> **Por que não GitHub Packages?** GitHub Packages **não hospeda registry PyPI** (suporta Maven/npm/NuGet/Docker). O fluxo oficial recomendado para libs Python privadas no GitHub é via tag do repo + wheel anexado à Release. Sem custo, sem PAT extra além do acesso SSH ao repo.
 
 Extras opcionais:
 
